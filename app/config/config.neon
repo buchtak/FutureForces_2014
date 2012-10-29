@@ -27,6 +27,12 @@ common:
 	services:
 		authenticator: Authenticator
 
+		translator:
+			factory: NetteTranslator\Gettext::getTranslator
+			setup:
+				- addFile(%appDir%/lang, front)
+				- NetteTranslator\Panel::register
+
 
 	factories:
 
