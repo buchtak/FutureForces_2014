@@ -1,27 +1,45 @@
 {**
- * My Application layout template.
+ * Future Forces 2014 layout template.
  *
- * @param string   $basePath web base path
- * @param string   $robots   tell robots how to index the content of a page (optional)
- * @param array    $flashes  flash messages
+ * @author		Josef Vokner <josef.vokner@gmail.com>
+ * @author		David Vlcek <vlcek@ppa.cz>
+ * @copyright		Copyright (c) 2012 Progres Partners Advertising, s.r.o.
+ * @package		NATOexhibition
+ * @framework		Nette.org
+ * @version		2.0.6
+ *
+ * @param string	$basePath	web base path
+ * @param string	$robots		tell robots how to index the content of a page
+ * @param array		$flashes	flash messages
+ * 
+ * @param string	$title		title block from called latte page (via n: macros in H1 tag)
+ * @param meta tags	$cssHead	style links from called latte page
+ * @param meta tags	$jsHead		javascript links from called latte page
+ * @param source	$content	mixed html, php etc. from called latte page
+ * 
+ * @var source		{_""}		(id) phrase for translate
  *}
 
 <!DOCTYPE html>
-<html>
+<html lang="{$lang}" xml:lang="{$lang}">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="Nette Framework web application skeleton">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<meta name="description" content="{_"FF14 description"}">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
-	<title>{block title|striptags|upper}Nette Application Skeleton{/block}</title>
+	<title>
+		Future Forces 2014 /
+	{block title|striptags}{/block}	</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
-
+{block #cssHead}{/block}
 	<script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
 	<script src="{$basePath}/js/netteForms.js"></script>
-	{block head}{/block}
+{block #jsHead}{/block}
 </head>
 
 <body>
