@@ -41,3 +41,6 @@ common:
 production < common:
 
 development < common:
+	nette:
+		container:
+			debugger: TRUE
